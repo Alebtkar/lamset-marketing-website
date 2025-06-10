@@ -1,27 +1,34 @@
+
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
+import { Navbar } from "@/components/Navbar";
+import { Hero } from "@/components/Hero";
+import { Services } from "@/components/Services";
+import { Testimonials } from "@/components/Testimonials";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+  <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <main>
+          <Hero />
+          <Services />
+          <Testimonials />
+          <Contact />
+        </main>
+        <Footer />
+        <WhatsAppButton />
+        <Toaster />
+        <Sonner />
+      </div>
     </TooltipProvider>
-  </QueryClientProvider>
+  </ThemeProvider>
 );
 
 export default App;
