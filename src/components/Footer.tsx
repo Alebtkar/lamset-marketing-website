@@ -1,12 +1,11 @@
-
 import { motion } from "framer-motion";
-import { Instagram, Facebook, TikTok } from "lucide-react";
+import { Instagram, Facebook, Video } from "lucide-react";
 
 export function Footer() {
   const socialLinks = [
     { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
     { name: "Facebook", icon: Facebook, url: "https://facebook.com" },
-    { name: "TikTok", icon: TikTok, url: "https://tiktok.com" },
+    { name: "TikTok", icon: Video, url: "https://tiktok.com" },
   ];
 
   return (

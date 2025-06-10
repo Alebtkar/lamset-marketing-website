@@ -1,8 +1,7 @@
-
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Instagram, Facebook, TikTok } from "lucide-react";
+import { Instagram, Facebook, Video } from "lucide-react";
 
 export function Contact() {
   const handleWhatsAppClick = () => {
@@ -12,7 +11,7 @@ export function Contact() {
   const socialLinks = [
     { name: "Instagram", icon: Instagram, url: "https://instagram.com", color: "hover:text-pink-500" },
     { name: "Facebook", icon: Facebook, url: "https://facebook.com", color: "hover:text-blue-600" },
-    { name: "TikTok", icon: TikTok, url: "https://tiktok.com", color: "hover:text-black dark:hover:text-white" },
+    { name: "TikTok", icon: Video, url: "https://tiktok.com", color: "hover:text-red-500" },
   ];
 
   return (
