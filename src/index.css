@@ -76,11 +76,18 @@
 
   body {
     @apply bg-background text-foreground font-cairo;
-    direction: rtl;
   }
   
   html {
     scroll-behavior: smooth;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  .ltr {
+    direction: ltr;
   }
 }
 

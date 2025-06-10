@@ -1,9 +1,13 @@
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Instagram, Facebook, Video } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Contact() {
+  const { t, language } = useLanguage();
+
   const handleWhatsAppClick = () => {
     window.open("https://wa.me/218000000000", "_blank");
   };
@@ -15,7 +19,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+    <section id="contact" className={`py-20 bg-gradient-to-br from-primary/5 to-primary/10 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -25,10 +29,10 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
-            تواصل معنا
+            {t('contactTitle')}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            هل أنت مستعد لبدء رحلتك في التسويق الرقمي؟ تواصل معنا الآن وسنكون سعداء لمساعدتك
+            {t('contactSubtitle')}
           </p>
         </motion.div>
 
@@ -42,7 +46,7 @@ export function Contact() {
             <Card className="bg-card border-2 border-primary/20 shadow-2xl">
               <CardHeader className="text-center pb-6">
                 <CardTitle className="text-2xl text-foreground">
-                  ابدأ مشروعك معنا اليوم
+                  {t('startProjectToday')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -55,7 +59,7 @@ export function Contact() {
                     size="lg"
                     className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
-                    تواصل معنا عبر الواتساب
+                    {t('whatsappContact')}
                   </Button>
                 </motion.div>
 
@@ -90,9 +94,15 @@ export function Contact() {
                   className="text-center text-muted-foreground border-t pt-6"
                 >
                   <p className="leading-relaxed">
-                    نحن هنا لمساعدتك في تحقيق أهدافك التسويقية
+                    {language === 'ar' 
+                      ? "نحن هنا لمساعدتك في تحقيق أهدافك التسويقية"
+                      : "We're here to help you achieve your marketing goals"
+                    }
                     <br />
-                    فريقنا المتخصص جاهز للرد على استفساراتك على مدار الساعة
+                    {language === 'ar'
+                      ? "فريقنا المتخصص جاهز للرد على استفساراتك على مدار الساعة"
+                      : "Our specialized team is ready to answer your inquiries 24/7"
+                    }
                   </p>
                 </motion.div>
               </CardContent>

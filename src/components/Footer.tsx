@@ -1,7 +1,11 @@
+
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Video } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { t, language } = useLanguage();
+  
   const socialLinks = [
     { name: "Instagram", icon: Instagram, url: "https://instagram.com" },
     { name: "Facebook", icon: Facebook, url: "https://facebook.com" },
@@ -9,7 +13,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-card border-t border-border py-12">
+    <footer className={`bg-card border-t border-border py-12 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -25,7 +29,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-2xl font-bold text-primary mb-4"
           >
-            لمسة للإعلانات والتسويق
+            {t('companyName')}
           </motion.h3>
           
           <motion.p
@@ -35,7 +39,7 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-muted-foreground mb-6 max-w-md mx-auto"
           >
-            شريكك الموثوق في رحلة النجاح التسويقي والإبداعي
+            {t('companySlogan')}
           </motion.p>
 
           <motion.div
@@ -72,10 +76,20 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
-            className="border-t border-border pt-6"
+            className="border-t border-border pt-6 space-y-2"
           >
             <p className="text-sm text-muted-foreground">
-              © 2024 لمسة للإعلانات والتسويق. جميع الحقوق محفوظة.
+              © 2024 {t('companyName')}. {t('allRightsReserved')}
+            </p>
+            <p className="text-sm text-muted-foreground">
+              <a 
+                href="https://www.ebtkar.tech" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
+              >
+                {t('builtBy')}
+              </a>
             </p>
           </motion.div>
         </motion.div>
